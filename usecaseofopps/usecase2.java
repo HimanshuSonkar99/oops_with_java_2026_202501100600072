@@ -1,4 +1,4 @@
-package javaProgramming.usecaseofopps.usecase2.java;
+package usecaseofopps;
 public class usecase2 {
      public static void main(String[] args) {
         Shape[] shapes = new Shape[2];
@@ -11,18 +11,34 @@ public class usecase2 {
     }
 }
 
-abstract class Area{
+abstract class Shape {
+    abstract double area();
     abstract void displayArea();
 }
-class Circle{
-    double r;
-    Circle(double r){
-        this.r = r;
+
+class Circle extends Shape {
+    private double radius;
+    Circle(double r) {
+        this.radius = r;
     }
-    public double area(){
-        return 3.14 * r * r;
+    double area(){
+        return Math.PI * radius * radius;
     }
-    public void displayArea(){
-        System.out.println("Area of Circle: " + area());
+    void displayArea(){
+        System.out.println("Area = " + Math.PI * radius * radius);
     }
 }
+class Rectangle extends Shape{
+    private double l,b;
+    Rectangle(double l,double b){
+        this.l=l;
+        this.b = b;
+    }
+    double area(){
+        return l*b;
+    }
+    void displayArea(){
+        System.out.println("Area =  " + l*b);
+    }
+}
+
